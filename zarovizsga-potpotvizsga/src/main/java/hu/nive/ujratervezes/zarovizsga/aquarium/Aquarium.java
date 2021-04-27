@@ -1,7 +1,7 @@
 package hu.nive.ujratervezes.zarovizsga.aquarium;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collection;
 import java.util.List;
 
 public class Aquarium {
@@ -10,12 +10,11 @@ public class Aquarium {
 
 
     public List<String> getStatus() {
-        List<String> result = new ArrayList<>();
+        List<String> status = new ArrayList<>();
         for (Fish fish : fishes) {
-            String record = fish.status();
-            result.add(record);
+            status.add(fish.toString());
         }
-        return result;
+        return status;
     }
 
     public void addFish(Fish fish) {
@@ -23,18 +22,16 @@ public class Aquarium {
     }
 
     public void removeFish() {
-        Iterator<Fish> itr = fishes.listIterator();
-        while (itr.hasNext()) {
-            if (itr.next().getWeight() > 10) {
-                itr.remove();
+        for (int i = 0; i < fishes.size(); i++) {
+            if (fishes.get(i).getWeight() > 10) {
+                fishes.remove(i);
             }
         }
     }
 
     public void feed() {
         for (Fish fish : fishes) {
-            fish.weight = fish.feed();
+            fish.feed();
         }
     }
-
 }

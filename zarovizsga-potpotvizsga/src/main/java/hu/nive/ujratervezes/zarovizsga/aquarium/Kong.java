@@ -6,16 +6,13 @@ public class Kong extends Fish {
         super(name, weight, color);
     }
 
-    public String status() {
-        return getName() + ", weight: " + getWeight() + ", color: " + getColor() + ", short term memory loss: " + hasMemoryLoss();
-    }
-
-    public int feed() {
-        return getWeight() + 2;
-    }
-
-
+    @Override
     public boolean hasMemoryLoss() {
         return false;
+    }
+
+    @Override
+    public void feed() {
+        this.weight += 2;
     }
 }

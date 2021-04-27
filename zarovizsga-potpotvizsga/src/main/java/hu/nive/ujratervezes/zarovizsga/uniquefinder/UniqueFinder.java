@@ -5,19 +5,17 @@ import java.util.List;
 
 public class UniqueFinder {
 
-    public List<Character> uniqueChars(String text) {
+    public List<Character> uniqueChars(String characters) {
         List<Character> result = new ArrayList<>();
-        if (text == null) {
-            throw new IllegalArgumentException("The string is empty.");
+        if (characters == null) {
+            throw new IllegalArgumentException("Invalid string");
         } else {
-            for (int i = 0; i < text.length(); i++) {
-                if (result.contains(text.charAt(i))) {
-                } else {
-                    result.add(text.charAt(i));
+            for (int i = 0; i < characters.length(); i++) {
+                if (!result.contains(characters.charAt(i))) {
+                    result.add(characters.charAt(i));
                 }
             }
         }
         return result;
     }
-
 }

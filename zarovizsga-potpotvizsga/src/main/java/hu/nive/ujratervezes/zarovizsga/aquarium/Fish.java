@@ -2,9 +2,9 @@ package hu.nive.ujratervezes.zarovizsga.aquarium;
 
 public abstract class Fish {
 
-    String name;
-    int weight;
-    String color;
+    protected String name;
+    protected int weight;
+    protected String color;
 
     public Fish(String name, int weight, String color) {
         this.name = name;
@@ -24,9 +24,16 @@ public abstract class Fish {
         return color;
     }
 
-    abstract String status();
+    public void status() {
+    }
 
-    abstract int feed();
+    public void feed() {
+    }
 
+    public abstract boolean hasMemoryLoss();
 
+    @Override
+    public String toString() {
+        return name + ", weight: " + weight + ", color: " + color + ", short term memory loss: " + hasMemoryLoss();
+    }
 }
